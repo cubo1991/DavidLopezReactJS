@@ -1,25 +1,31 @@
 import React from 'react' 
-import "bootstrap/dist/css/bootstrap.min.css"
+import LogoCarrito from '../Imagenes/Carrito.png'
+
+const styles = {
+  tamaño: {height: 50,
+  width: 50}
 
 
+}
 const Navbar = () => {
     return (<div><h1>Xero</h1>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Xero</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <img src={LogoCarrito} style={styles.tamaño} />
+  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a className="navbar-brand" href="#">Xero</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Comprar</a>
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+        <a className="nav-link" href="#">Comprar</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Conocer más</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Conocer más</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contacto</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Contacto</a>
       </li>
      
      
