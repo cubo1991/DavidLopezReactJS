@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f0bd17;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+p{align-items: center;}
+.div-contador{
+  display: flex;
+  
+ 
+}
+.button-contador {margin: 10px 10px 10px 10px;}
+
+.fondoNavBar {background-color: white;}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +44,6 @@
   to {
     transform: rotate(360deg);
   }
+  
 }
+

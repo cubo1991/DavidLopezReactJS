@@ -2,7 +2,11 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import ItemListContainer from './Components/ItemListContainer';
-import "bootstrap/dist/css/bootstrap.min.css"
+import ItemCount from './Components/ItemCount'
+
+
+let stock = 5
+const initial = 1
 
 
 
@@ -12,7 +16,7 @@ function App() {
       <header className="App-header">
       <Navbar />
       <ItemListContainer />
-      <clicktraker />
+      <ItemCount stock={stock} initial={initial} />
         </header>
       
     </div>
