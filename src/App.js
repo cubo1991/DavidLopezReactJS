@@ -2,7 +2,7 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import ItemListContainer from './Components/ItemListContainer';
-import ItemsList from './Components/ItemsList';
+
 
 
 
@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       </header>
       <ItemListContainer />
-      <ItemsList />
+      
       
         
       

@@ -8,7 +8,7 @@ const Items = ({producto}) => {
   <Card.Body>
     <Card.Title>{producto.title}</Card.Title>
     <Card.Text>
-      {producto.price}
+      <p>Estás a {producto.price} de que sea tuyo</p>
     </Card.Text> 
       </Card.Body>
 </Card>
