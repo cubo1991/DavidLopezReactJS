@@ -2,11 +2,12 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import ItemListContainer from './Components/ItemListContainer';
-import ItemCount from './Components/ItemCount'
+import ItemsList from './Components/ItemsList';
 
 
-let stock = 5
-const initial = 1
+
+//let stock = 5
+//const initial = 1
 
 
 
@@ -15,9 +16,11 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Navbar />
+      </header>
       <ItemListContainer />
-      <ItemCount stock={stock} initial={initial} />
-        </header>
+      <ItemsList />
+      
+        
       
     </div>
   );
