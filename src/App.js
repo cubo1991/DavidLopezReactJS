@@ -4,6 +4,10 @@ import Navbar from './Components/Navbar';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import {Contacto} from './Components/Contacto'
+import {Nosotros} from './Components/Nosotros'
+
+
 
 
 
@@ -18,7 +22,13 @@ function App() {
    <Navbar className="App-header" />   <Routes>
    
     <Route path="/" element= {<ItemListContainer/> }/>
-    <Route path="/" element= {<ItemDetailContainer />}/> 
+    <Route path="/Contacto" element= {<Contacto />}/> 
+    <Route path="/Nosotros" element= {<Nosotros />}/> 
+    <Route path="/Categoria/:CategoriaId" element={ <ItemListContainer/> }/>
+    <Route path="/detalle/:ItemId" element={<ItemDetailContainer/>}/>
+    
+    
+    <Route path="*" element = {<Navigate to="/"/>} />
     
     
       

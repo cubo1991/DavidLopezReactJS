@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const ConocerMás = () => {
+export const Nosotros = () => {
 
   return <div className='container'>
-      <h2>Conocer más</h2>
+      <h2>Nosotros</h2>
       <hr/>
   </div>;
 };
