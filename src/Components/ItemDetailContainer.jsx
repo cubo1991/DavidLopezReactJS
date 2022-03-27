@@ -5,18 +5,20 @@ import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
     const [ProductDetail, setProductDetail] = useState({})
-    
+    const [cargando, setCargando] = useState (false)
     useEffect(()=>{
+      setCargando(true)
         getItems
         .then((res) => setProductDetail(res.find((item)=> item.id === 3)))
         .catch((error) => console.log(error))
+        .finally(() => {setCargando(false)})
         
     }, [])
 
    
   return (
     <div>
-        { ProductDetail ? <ItemDetail ProductDetail={ProductDetail}/> : ''}
+        { cargando ? <p>Cargando...</p>: <ItemDetail ProductDetail={ProductDetail}/> }
         
     </div>
   )

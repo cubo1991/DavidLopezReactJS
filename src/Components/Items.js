@@ -9,10 +9,11 @@ const Items = ({producto}) => {
     <Card.Title>{producto.title}</Card.Title>
     <Card.Text>
       <p>Estás a {producto.price} de que sea tuyo</p>
+      <button className='btn btn-primary'> Ver más</button>
     </Card.Text> 
       </Card.Body>
 </Card>
-  )
+  ) 
 }
 
 export default Items

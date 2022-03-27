@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #f0bd17;
-  min-height: 100vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,6 +35,16 @@ p{align-items: center;}
  
 }
 .button-contador {margin: 10px 10px 10px 10px;}
+
+.marginRight {
+  margin-right: 50px;
+}
+.marginLeft {
+  margin-left: 50px;
+}
+.marginNavBar {
+  margin-left: 390px
+}
 
 .fondoNavBar {background-color: white;}
 @keyframes App-logo-spin {

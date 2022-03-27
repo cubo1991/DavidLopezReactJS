@@ -5,18 +5,23 @@ import { getItems } from '../mocks/miApi'
 
 const ItemListContainer = () => {
     const [listaDeProductos, setlistaDeProductos] = useState([]);
+    const [cargando, setCargando] = useState (false)
    
     ;
   
     useEffect(() => {
+      setCargando(true)
       getItems
         .then((res) => setlistaDeProductos(res))
-        .catch((err) => console.log('error',err));
+        .catch((err) => console.log('error',err))
+        .finally(() => {
+          setCargando(false)
+        })
     }, []);
     return (
         <div>
            
-            <ItemsList listaDeProductos={listaDeProductos} />
+           { cargando ? <p>Cargando...</p> :<ItemsList listaDeProductos={listaDeProductos} />}
         </div>
     )
   };
