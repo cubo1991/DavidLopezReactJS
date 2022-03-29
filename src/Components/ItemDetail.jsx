@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ProductDetail}) => {
     const {title, price, pictureUrl} = ProductDetail
@@ -19,7 +20,7 @@ const ItemDetail = ({ProductDetail}) => {
     </Card.Text> 
       </Card.Body>
 </Card>
-
+<ItemCount/>
 </div>
 <Button className="btn  btn-ouline-primary" onClick={volver}> Volver</Button> </div>
   )

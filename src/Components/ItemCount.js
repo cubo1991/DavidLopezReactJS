@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock = 15, initial = 1 }) => {
   const [cantidad, setCantidad] = useState(initial);
   
   const clickSum = () => {
@@ -22,12 +22,12 @@ const ItemCount = ({ stock, initial }) => {
   };
   const onAdd = () => {
     if (cantidad === 1) {
-      alert("Has agregado " + cantidad + " producto al carrito");
+      alert(`Has agregado ${cantidad} producto al carrito`);
       
       return;
     }
     {
-      alert("Has agregado " + cantidad + " productos al carrito");
+      alert(`Has agregado ${cantidad} productos al carrito`);
     
     }
    
