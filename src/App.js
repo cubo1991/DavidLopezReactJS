@@ -6,7 +6,7 @@ import ItemDetailContainer from './Components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import {Contacto} from './Components/Contacto'
 import {Nosotros} from './Components/Nosotros'
-
+import {Cart} from './Components/Cart'
 
 
 
@@ -26,6 +26,7 @@ function App() {
     <Route path="/Nosotros" element= {<Nosotros />}/> 
     <Route path="/Categoria/:CategoriaId" element={ <ItemListContainer/> }/>
     <Route path="/detalle/:ItemId" element={<ItemDetailContainer/>}/>
+    <Route path="/Cart" element={<Cart/>} />
     
     
     <Route path="*" element = {<Navigate to="/"/>} />

@@ -2,6 +2,7 @@ import React, {useEffect, useState }  from 'react'
 import { useParams } from 'react-router-dom'
 import { getItems } from '../mocks/miApi'
 import ItemDetail from './ItemDetail'
+import stock from './stock'
 
 
 const ItemDetailContainer = () => {
@@ -15,6 +16,8 @@ const ItemDetailContainer = () => {
         .then((res) => setProductDetail(res.find((item)=> item.id === Number(ItemId))))
         .catch((error) => console.log(error))
         .finally(() => {setCargando(false)})
+
+       console.log(stock)
         
     }, [])
 

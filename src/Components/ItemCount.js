@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 
-const ItemCount = ({ stock = 15, initial = 1 }) => {
-  const [cantidad, setCantidad] = useState(initial);
+const ItemCount = ({onAdd, cantidad, setCantidad, initial, stock}) => {
   
   const clickSum = () => {
     if (cantidad === stock) {
@@ -20,20 +20,6 @@ const ItemCount = ({ stock = 15, initial = 1 }) => {
       setCantidad(cantidad - 1);
     }
   };
-  const onAdd = () => {
-    if (cantidad === 1) {
-      alert(`Has agregado ${cantidad} producto al carrito`);
-      
-      return;
-    }
-    {
-      alert(`Has agregado ${cantidad} productos al carrito`);
-    
-    }
-   
-    
-  };
-
   return (
     <div >
         <p>Camisas Rojas</p>
@@ -41,7 +27,7 @@ const ItemCount = ({ stock = 15, initial = 1 }) => {
         <button className="button-contador" onClick={() => clickSum("sumar")}> + </button>
        <p className="cantidadAdd">{cantidad}</p>
         <button className="button-contador" onClick={() => clickRest("restar")}> - </button>
-        <button className="button-contador" onClick={() => onAdd()}>Agregar al carro</button>
+       <Link to={'/cart'}> <button className="button-contador" onClick={() => onAdd()}>Agregar al carro</button></Link>
       </div></div>
     
   );
