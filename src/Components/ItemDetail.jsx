@@ -1,27 +1,41 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Card, Button} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { CartContext } from './Context/CartContext';
 import ItemCount from './ItemCount';
 
 
 const ItemDetail = ({ProductDetail}) => {
+  const {carrito, addProducto} = useContext(CartContext)
   const initial = 1
+
   
-  const {title, price, stock, pictureUrl} = ProductDetail
+  const {title, price, stock, pictureUrl, id} = ProductDetail
     const Navigate = useNavigate()
     const [cantidad, setCantidad] = useState(initial);
+    const productoCarrito = [
+    id,
+    title,
+    price,
+    stock,
+    pictureUrl,
+    ]
     
   
   const onAdd = () => {
     if (cantidad === 1) {
       alert(`Has agregado ${cantidad} producto al carrito`);
+      addProducto(productoCarrito)
+      
       
       return;
     }
     {
       alert(`Has agregado ${cantidad} productos al carrito`);
+      addProducto(productoCarrito)
     
-    }
+    };
+    
    
     
   };
@@ -35,8 +49,8 @@ const ItemDetail = ({ProductDetail}) => {
   <Card.Body>
     <Card.Title>{title}</Card.Title>
     <Card.Text>
-      <p>Precio {price} </p>
-      <p>Stock disponible: {stock}</p>
+      Precio {price} 
+      Stock disponible: {stock}
     </Card.Text> 
       </Card.Body>
 </Card>

@@ -9,7 +9,7 @@ const Items = ({producto}) => {
   <Card.Body>
     <Card.Title>{producto.title}</Card.Title>
     <Card.Text>
-      <p>Estás a {producto.price} de que sea tuyo</p>
+      Estás a {producto.price} de que sea tuyo
       <Link to={`/detalle/${producto.id}`}><button className='btn btn-primary'> Ver más</button></Link>
     </Card.Text> 
       </Card.Body>

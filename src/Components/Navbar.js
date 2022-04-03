@@ -61,9 +61,11 @@ Compra  </Dropdown.Toggle>
     </ul>
     
   </div>
-  < div style={styles.marginRigh}>
+  
+  <Link to="/Cart">< div style={styles.marginRigh}>
     <img className='marginRight' src={LogoCarrito} style={styles.tamaño} />
-  </div>
+    
+  </div></Link>
 </nav>
 </div>
 

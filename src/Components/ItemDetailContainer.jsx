@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
         .catch((error) => console.log(error))
         .finally(() => {setCargando(false)})
 
-       console.log(stock)
+       
         
     }, [])
 
