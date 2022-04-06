@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+
 import Navbar from './Components/Navbar';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer';
@@ -8,7 +8,9 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import {Contacto} from './Components/Contacto'
 import {Nosotros} from './Components/Nosotros'
 import {Cart} from './Components/Cart'
-import {CartContext} from './Components/Context/CartContext'
+import {CarritoProvider} from './Components/Context/CartContext'
+
+
 
 
 
@@ -16,19 +18,11 @@ import {CartContext} from './Components/Context/CartContext'
 
 function App() {
 
-  const [carrito, setCarrito] = useState ([])
-  
-  const addProducto = (producto) =>{
-  setCarrito([...carrito, producto])
-  }
-
-  console.log(carrito)
-  
   
   
   return (
-   <CartContext.Provider value={{carrito, setCarrito, addProducto}}>
-   <BrowserRouter> 
+   <CarritoProvider>
+ <BrowserRouter> 
    <Navbar className="App-header" />   
    <Routes>
    
@@ -55,7 +49,9 @@ function App() {
     
     </Routes>
     </BrowserRouter>
-    </CartContext.Provider>
+   </CarritoProvider>
+  
+    
   );
 }
 

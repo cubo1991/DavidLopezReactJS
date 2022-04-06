@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import ItemsList from "./ItemsList"
 import { getItems } from '../mocks/miApi'
 import { useParams } from 'react-router-dom'
+import { CircularProgress } from '@mui/material'
 
 const ItemListContainer = () => {
     const [listaDeProductos, setlistaDeProductos] = useState([]);
@@ -26,7 +27,7 @@ const ItemListContainer = () => {
     return (
         <div>
            
-           { cargando ? <p>Cargando...</p> :<ItemsList listaDeProductos={listaDeProductos} />}
+           { cargando ? <CircularProgress /> :<ItemsList listaDeProductos={listaDeProductos} />}
         </div>
     )
   };

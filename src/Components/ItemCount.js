@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from 'react-router-dom';
+import { CartContext } from './Context/CartContext';
 
 
-const ItemCount = ({onAdd, cantidad, setCantidad, initial, stock}) => {
+
+const ItemCount = ({onAdd, cantidad, setCantidad, initial, stock, id}) => {
+  const {productoExistente, carrito} = useContext(CartContext)
+  
   
   const clickSum = () => {
     if (cantidad === stock) {
@@ -22,16 +26,20 @@ const ItemCount = ({onAdd, cantidad, setCantidad, initial, stock}) => {
   };
   return (
     <div >
-        <p>Camisas Rojas</p>
+        <p>Producto</p>
         <div className= "div-contador"> 
+       
         <button className="button-contador" onClick={() => clickRest("restar")}> - </button>
        <p className="cantidadAdd">{cantidad}</p>
         
         <button className="button-contador" onClick={() => clickSum("sumar")}> + </button>
-       <Link to={'/cart'}> <button className="button-contador" onClick={() => onAdd()}>Agregar al carro</button></Link>
-      </div></div>
+       <button className="button-contador" onClick={() => onAdd()}>Agregar al carro</button>
+      
+      </div>
+      </div>
     
   );
+  
 };
 
 export default ItemCount;
