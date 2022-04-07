@@ -34,6 +34,7 @@ function App() {
     <Route path="/Cart" element={<Cart/>} />
     
     
+    
     <Route path="*" element = {<Navigate to="/"/>} />
     
     

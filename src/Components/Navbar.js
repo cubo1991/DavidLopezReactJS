@@ -7,6 +7,7 @@ import XeroLogo from '../Imagenes/XeroLogo.png'
 import { Link } from 'react-router-dom'
 import { Dropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import CartWidget from './CartWidget'
 
 
 
@@ -61,11 +62,8 @@ Compra  </Dropdown.Toggle>
     </ul>
     
   </div>
-  
-  <Link to="/Cart">< div style={styles.marginRigh}>
-    <img className='marginRight' src={LogoCarrito} style={styles.tamaño} />
-    
-  </div></Link>
+  <CartWidget/>
+      
 </nav>
 </div>
 
