@@ -1,14 +1,23 @@
 import { useContext } from "react";
 import { CartContext } from "./Context/CartContext";
+import { Link } from "react-router-dom";
+
+import { Button } from "bootstrap";
 
 export const Cart = () => {
-  const { carrito, removeProducto, setCarrito, limpiarCarrito, totalCarrito } = useContext(CartContext);
-  console.log(carrito);
+  const { carrito, removeProducto, limpiarCarrito , precioTotal } = useContext(CartContext);
+  console.log(precioTotal)
   
-  if (carrito.lenght === 0){
+  if (carrito.length < 1){
   
   return (
-    <p>Acá no hay nada</p>
+    <div>
+    <h2>Todavía no has puesto nada en el carrito</h2>
+    <Link to="/">
+      <button>Empezá a comprar ya</button>
+    </Link>
+    
+    </div>
     );}
    {
     return (
@@ -20,7 +29,7 @@ export const Cart = () => {
           carrito.map((item) => (
             <div key={item.id}>
               <h2>{item.title}</h2>
-              <h3>Precio: {item.price}</h3>
+              <h3>Precio: ${item.price}</h3>
               <h3>Cantidad: {item.cantidad}</h3>
               <hr/>
               <button  onClick={() => removeProducto(item.id)}>Quitar este producto</button>
@@ -32,7 +41,7 @@ export const Cart = () => {
           <hr/>
   
           <button  onClick={() => limpiarCarrito()}>Quitar todos los productos</button>
-          <h2>Total: {totalCarrito}</h2>
+          <h2>Total: ${precioTotal()}</h2>
       </div>
       
       

@@ -53,7 +53,7 @@ const ItemDetail = ({ProductDetail}) => {
     <Card.Title>{title}</Card.Title>
     <Card.Text >
       <div className='d-flex justify-content'>
-      Precio {price} 
+      Precio $ {price} 
         
       Stock: {stock}
       </div>

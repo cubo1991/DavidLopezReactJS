@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { CartContext } from './Context/CartContext'
 
 
+
 const CartWidget = () => {
     const { totalCarrito, carrito} = useContext(CartContext);
     const styles = {
@@ -20,7 +21,7 @@ const CartWidget = () => {
       
       }
     return ( 
-       carrito.lenght === 0 
+       carrito.length === 0 
         ? 
         ""
         :
