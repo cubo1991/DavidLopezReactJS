@@ -1,8 +1,10 @@
 import React, {useEffect, useState }  from 'react'
 import { useParams } from 'react-router-dom'
+import { db } from '../firebase/config'
 import { getItems } from '../mocks/miApi'
 import ItemDetail from './ItemDetail'
 import stock from './stock'
+import {doc, getDoc} from "firebase/firestore"
 
 
 const ItemDetailContainer = () => {
@@ -12,14 +14,19 @@ const ItemDetailContainer = () => {
     
     useEffect(()=>{
       setCargando(true)
-        getItems
-        .then((res) => setProductDetail(res.find((item)=> item.id === Number(ItemId))))
-        .catch((error) => console.log(error))
-        .finally(() => {setCargando(false)})
-
-       
+      const docRef = doc(db, "productos", ItemId)  
+      getDoc(docRef)
+      .then(doc => {
+        const producto = {id:doc.id, ...doc.data()}
+        setProductDetail(producto)
+      
+      })
+      .finally(() =>{
+        setCargando(false)
+      })
+      
         
-    }, [])
+    }, [ItemId])
 
    
   return (
