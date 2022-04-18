@@ -9,6 +9,7 @@ import {Contacto} from './Components/Contacto'
 import {Nosotros} from './Components/Nosotros'
 import {Cart} from './Components/Cart'
 import {CarritoProvider} from './Components/Context/CartContext'
+import {Checkout} from './Components/Checkout'
 
 
 
@@ -32,6 +33,7 @@ function App() {
     <Route path="/Categoria/:CategoriaId" element={ <ItemListContainer/> }/>
     <Route path="/detalle/:ItemId" element={<ItemDetailContainer/>}/>
     <Route path="/Cart" element={<Cart/>} />
+    <Route path="/Checkout" element={<Checkout/>} />
     
     
     

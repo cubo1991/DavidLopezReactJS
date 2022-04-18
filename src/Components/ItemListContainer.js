@@ -21,7 +21,7 @@ const ItemListContainer = () => {
       getDocs(q) 
         .then(resp => {
           const items = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-          console.log(items)
+        
           setlistaDeProductos(items)
          })
          .finally(() => {

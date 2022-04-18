@@ -24,7 +24,7 @@ const ItemDetail = ({ProductDetail}) => {
     cantidad,
   }
   
-  console.log(productoExistente(id))
+  
   const onAdd = () => {
     if (cantidad === 1) {
       alert(`Has agregado ${cantidad} producto al carrito`);

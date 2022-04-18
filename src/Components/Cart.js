@@ -6,7 +6,7 @@ import { Button } from "bootstrap";
 
 export const Cart = () => {
   const { carrito, removeProducto, limpiarCarrito , precioTotal } = useContext(CartContext);
-  console.log(precioTotal)
+  
   
   if (carrito.length < 1){
   
@@ -41,6 +41,7 @@ export const Cart = () => {
           <hr/>
   
           <button  onClick={() => limpiarCarrito()}>Quitar todos los productos</button>
+          <Link to="/Checkout" className="btn btn-success">Terminar mi compra</Link>
           <h2>Total: ${precioTotal()}</h2>
       </div>
       
