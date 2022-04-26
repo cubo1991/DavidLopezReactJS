@@ -1,10 +1,9 @@
 import React, {useEffect, useState }  from 'react'
 import { useParams } from 'react-router-dom'
 import { db } from '../firebase/config'
-import { getItems } from '../mocks/miApi'
 import ItemDetail from './ItemDetail'
-import stock from './stock'
 import {doc, getDoc} from "firebase/firestore"
+import { LinearProgress } from '@mui/material'
 
 
 const ItemDetailContainer = () => {
@@ -31,7 +30,7 @@ const ItemDetailContainer = () => {
    
   return (
     <div>
-        { cargando ? <p>Cargando...</p>: <ItemDetail ProductDetail={ProductDetail}/> }
+        { cargando ? <LinearProgress size="250px"  />: <ItemDetail ProductDetail={ProductDetail}/> }
         
     </div>
   )

@@ -1,11 +1,8 @@
 import {useContext, useState} from 'react'
 import { db } from '../firebase/config';
-import { Cart } from './Cart';
-import { CarritoProvider, CartContext } from './Context/CartContext';
+import { CartContext } from './Context/CartContext';
 import {query, where, documentId, writeBatch ,collection, addDoc, Timestamp, getDocs } from 'firebase/firestore';
 import { Navigate, Link } from 'react-router-dom';
-
-
 export const Checkout = () => {
 
     const {carrito, totalCarrito, limpiarCarrito} = useContext(CartContext);
@@ -16,12 +13,12 @@ export const Checkout = () => {
       {
           nombre: '',
           email: '',
-          teléfono:'',
+          teléfono: '',
       }
   )
 
   const handleInputChange = (e) => {
-       console.log(e.target.name)
+      
         setValues({
             ...values, 
             [e.target.name] : e.target.value
@@ -38,7 +35,9 @@ export const Checkout = () => {
             total: totalCarrito(),
             comprador: {...values},
             FechayHora: Timestamp.fromDate(new Date()),
+           
         }
+       
         const batch = writeBatch(db)
         const ordersRef = collection(db, 'orders')
         const productosRef = collection(db, 'productos')
@@ -84,7 +83,55 @@ if(carrito.length === 0){
     return <Navigate to="/"/>
 }
 
-  return (
+if(values.nombre.length === 0 || values.email.lenght === 0 || values.teléfono.length === 0){
+    return (
+        <div className='container my-5'><h2>Checkout</h2>
+        <hr/>
+        <form onSubmit={handleSubmit}>
+            <input 
+            className="form-control my-2"
+            type={'text'}
+            placeholder="Nombre"
+            value={values.nombre}
+            name='nombre'
+            required
+           onChange={handleInputChange}
+            />
+            <input 
+            className="form-control my-2"
+            type={'email'}
+            placeholder="Dirección de Correo"
+            value={values.email}
+            name='email'
+            required
+            onChange={handleInputChange}
+            />
+            <input 
+            className="form-control my-2"
+            type={'tel'}
+            placeholder="Teléfono"
+            value={values.teléfono}
+            name='teléfono'
+            pattern="[0-9]*"
+            required
+            onChange={handleInputChange}
+            />
+    
+           
+         
+          
+          
+    
+    
+        </form>
+    
+    
+    
+        </div>
+        
+      )
+} else 
+ { return (
     <div className='container my-5'><h2>Checkout</h2>
     <hr/>
     <form onSubmit={handleSubmit}>
@@ -94,6 +141,7 @@ if(carrito.length === 0){
         placeholder="Nombre"
         value={values.nombre}
         name='nombre'
+        required
        onChange={handleInputChange}
         />
         <input 
@@ -102,6 +150,7 @@ if(carrito.length === 0){
         placeholder="Dirección de Correo"
         value={values.email}
         name='email'
+        required
         onChange={handleInputChange}
         />
         <input 
@@ -110,10 +159,15 @@ if(carrito.length === 0){
         placeholder="Teléfono"
         value={values.teléfono}
         name='teléfono'
+        pattern="[0-9]*"
+        required
         onChange={handleInputChange}
         />
 
-        <button className='btn btn-success' type="submit">Enviar</button>
+       
+     
+      
+      <button className='btn btn-success' type="submit">Enviar</button>
 
 
     </form>
@@ -122,5 +176,6 @@ if(carrito.length === 0){
 
     </div>
     
-  )
+  )}
+  
 }

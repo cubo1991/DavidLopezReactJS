@@ -57,3 +57,16 @@ p{align-items: center;}
   
 }
 
+.tamañoCantidad {
+  font-size: x-large;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.imagenesProductos {
+  height: 75%;
+  width: 75%;
+}
+.agotado {
+  color: red;
+  font-size: x-large;
+}

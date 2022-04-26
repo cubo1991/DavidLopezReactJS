@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react'
 import {Card, Button} from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { CartContext } from './Context/CartContext';
 import ItemCount from './ItemCount';
-import { LinkContainer } from 'react-router-bootstrap'
+
 
 
 const ItemDetail = ({ProductDetail}) => {
@@ -27,14 +27,15 @@ const ItemDetail = ({ProductDetail}) => {
   
   const onAdd = () => {
     if (cantidad === 1) {
-      alert(`Has agregado ${cantidad} producto al carrito`);
+      
       addProducto(productoCarrito)
       
       
       return;
     }
+    // eslint-disable-next-line no-lone-blocks
     {
-      alert(`Has agregado ${cantidad} productos al carrito`);
+      
       addProducto(productoCarrito)
     
     };
@@ -44,38 +45,76 @@ const ItemDetail = ({ProductDetail}) => {
   };
 
     const volver = () => {Navigate (-1)}
-  return (
-    <div>
+ if(stock > 0){ return (
+  <div>
+  <div className='d-flex justify-content-around'>
+       <Card style={{ width: '15rem' }}>
+<Card.Img variant="top" src={pictureUrl} />
+<div className='d-flex block'>
+<Card.Body>
+  <Card.Title  className='mr-4'>{title}</Card.Title>
+  <hr/>
+  <Card.Text >
     <div className='d-flex justify-content-around'>
-         <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={pictureUrl} />
-  <Card.Body>
-    <Card.Title>{title}</Card.Title>
-    <Card.Text >
-      <div className='d-flex justify-content'>
-      Precio $ {price} 
-        
-      Stock: {stock}
-      </div>
+    <b>Precio $ {price}</b>                                                                                         
+    <b>Stock: {stock}</b>
+    
+    </div>
 
-    </Card.Text> 
-      </Card.Body>
+  </Card.Text> 
+    </Card.Body>
+    </div>
 </Card>
 
 {
-  !productoExistente(id)
-  ?
+!productoExistente(id)
+?
 <ItemCount onAdd={onAdd} cantidad={cantidad} initial={initial} stock={stock} setCantidad={setCantidad }/> 
 :
-<LinkContainer to={'/cart'}><Button> Ir al carrito </Button></LinkContainer>
+<div>
+<Link to="/cart"><button className="btn btn-success tamañoCantidad mt-2"  > Ir al carrito </button></Link>
+<Link to="/"><button className="btn btn-warning tamañoCantidad mt-2"  > Seguir comprando </button></Link>
+</div>
 }
 
 </div>
 
 
 
-<Button className="btn  btn-ouline-primary" onClick={volver}> Volver</Button></div> 
+<Button className="btn  btn-ouline-primary tamañoCantidad" onClick={volver}> Volver</Button></div> 
+)} else {
+  return (
+    <div>
+    <div className='d-flex justify-content-around'>
+         <Card style={{ width: '15rem' }}>
+  <Card.Img variant="top" src={pictureUrl} />
+  <div className='d-flex block'>
+  <Card.Body>
+    <Card.Title  className='mr-4'>{title}</Card.Title>
+    <hr/>
+    <Card.Text >
+      <div className='d-flex justify-content-around'>
+                                                                                          
+      <b className='agotado'>SIN STOCK</b>
+      
+      </div>
+
+    </Card.Text> 
+      </Card.Body>
+      </div>
+</Card>
+
+
+
+
+
+</div>
+
+
+
+<Button className="btn  btn-ouline-primary tamañoCantidad" onClick={volver}> Volver</Button></div> 
   )
+}
 }
 
 export default ItemDetail

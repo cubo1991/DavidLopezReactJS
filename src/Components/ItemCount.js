@@ -1,11 +1,12 @@
-import React, {useContext} from "react";
-import { Link } from 'react-router-dom';
-import { CartContext } from './Context/CartContext';
+import React  from "react";
+
+import {AiOutlinePlusCircle} from 'react-icons/ai';
+import {AiOutlineMinusCircle} from 'react-icons/ai'
 
 
 
 const ItemCount = ({onAdd, cantidad, setCantidad, initial, stock, id}) => {
-  const {productoExistente, carrito} = useContext(CartContext)
+ 
   
   
   const clickSum = () => {
@@ -26,14 +27,14 @@ const ItemCount = ({onAdd, cantidad, setCantidad, initial, stock, id}) => {
   };
   return (
     <div >
-        <p>Producto</p>
+        <h2>Cantidad</h2>
         <div className= "div-contador"> 
-       
-        <button className="button-contador" onClick={() => clickRest("restar")}> - </button>
-       <p className="cantidadAdd">{cantidad}</p>
+        <AiOutlineMinusCircle size={50} onClick={() => clickRest("restar")} />  
         
-        <button className="button-contador" onClick={() => clickSum("sumar")}> + </button>
-       <button className="button-contador" onClick={() => onAdd()}>Agregar al carro</button>
+       <p className="tamañoCantidad" >{cantidad}</p>
+        
+        <AiOutlinePlusCircle size={50} onClick={() => clickSum("sumar")} />  
+       <button className="btn btn-success tamañoCantidad" onClick={() => onAdd()}>Agregar al carro</button>
       
       </div>
       </div>

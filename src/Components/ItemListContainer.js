@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react' 
 import "bootstrap/dist/css/bootstrap.min.css"
 import ItemsList from "./ItemsList"
-import { getItems } from '../mocks/miApi'
+
 import { useParams } from 'react-router-dom'
-import { CircularProgress } from '@mui/material'
+import { LinearProgress } from '@mui/material'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../firebase/config'
 
@@ -33,7 +33,7 @@ const ItemListContainer = () => {
     return (
         <div>
            
-           { cargando ? <CircularProgress /> :<ItemsList listaDeProductos={listaDeProductos} />}
+           { cargando ? <LinearProgress size="250px"  /> :<ItemsList listaDeProductos={listaDeProductos} />}
         </div>
     )
   };
